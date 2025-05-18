@@ -1,7 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import WeeksSection from '../components/WeeksSection';
 import FeaturesSection from '../components/FeaturesSection';
-import TestimonialSection from '../components/TestimonialSection';
 import CTASection from '../components/CTASection';
 
 const Home = () => {
@@ -10,7 +9,6 @@ const Home = () => {
       <HeroSection />
       <WeeksSection />
       <FeaturesSection />
-      <TestimonialSection />
       <CTASection />
     </div>
   );

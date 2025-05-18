@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import WeekCard from './WeekCard';
-import { weeks } from '../data/bootcampData';
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WeekCard from "./WeekCard";
+import { weeks } from "../data/bootcampData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,8 +22,8 @@ const WeeksSection = () => {
           duration: 0.8,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
+            start: "top 80%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -36,14 +36,30 @@ const WeeksSection = () => {
         <h2 ref={titleRef} className="section-title text-center mb-12">
           Bootcamp Structure
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {weeks.map((week, index) => (
-            <WeekCard 
+            <WeekCard
               key={week.id}
-              week={week.id}
-              title={week.title}
-              description={week.shortDescription} 
+              week={
+                week.id === "1-3"
+                  ? "1"
+                  : week.id === "4-6"
+                  ? "2"
+                  : week.id === "7"
+                  ? "3"
+                  : week.id
+              }
+              title={
+                week.id === "1-3"
+                  ? week.title.replace("Week 1-3", "Stage 1")
+                  : week.id === "4-6"
+                  ? week.title.replace("Week 4-6", "Stage 2")
+                  : week.id === "7"
+                  ? week.title.replace("Week 7", "Stage 3")
+                  : week.title
+              }
+              description={week.shortDescription}
               image={week.image}
               delay={index * 0.1}
             />

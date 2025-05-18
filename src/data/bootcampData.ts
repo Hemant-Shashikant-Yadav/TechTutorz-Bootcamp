@@ -8,7 +8,7 @@ export const weeks: Week[] = [
     description: 'The first three weeks focus on establishing a strong foundation in aptitude skills - covering quantitative, logical reasoning, and verbal ability. Through daily practice sessions and weekend tests, you\'ll develop the speed and accuracy needed to excel in placement aptitude rounds.',
     image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     detailImage: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    schedule: 'Monday to Friday: 2 hours daily',
+    schedule: 'Monday to Saturday: 2 hours daily',
     duration: '3 weeks',
     focusArea: 'Aptitude Skills Development',
     curriculum: [
@@ -59,7 +59,7 @@ export const weeks: Week[] = [
     description: 'Weeks 4-6 dive deep into technical skills, with a focus on data structures and algorithms. You\'ll solve over 100 coding problems, work on company-specific question patterns, and participate in weekly coding tests that simulate real interview conditions.',
     image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     detailImage: 'https://images.pexels.com/photos/4709289/pexels-photo-4709289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    schedule: 'Monday to Friday: 2 hours daily, Saturday: Testing',
+    schedule: 'Monday to Saturday: 2 hours daily, Sunday: Test',
     duration: '3 weeks',
     focusArea: 'DSA & Problem Solving',
     curriculum: [

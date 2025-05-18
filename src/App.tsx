@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Components
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Pages
-import Home from './pages/Home';
-import WeekDetails from './pages/WeekDetails';
-import Benefits from './pages/Benefits';
+import Home from "./pages/Home";
+import WeekDetails from "./pages/WeekDetails";
+import Benefits from "./pages/Benefits";
+import RegistrationPage from "./pages/RegistrationPage";
 
 // Initialize GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -30,12 +31,12 @@ function App() {
   // Handle route change animations
   useEffect(() => {
     // Animate page transitions
-    const content = document.querySelector('main');
+    const content = document.querySelector("main");
     if (content) {
       gsap.fromTo(
         content,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
       );
     }
 
@@ -49,8 +50,9 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/week/:id" element={<WeekDetails />} />
+          <Route path="/stage/:id" element={<WeekDetails />} />
           <Route path="/benefits" element={<Benefits />} />
+          <Route path="/register" element={<RegistrationPage />} />
         </Routes>
       </main>
       <Footer />

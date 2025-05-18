@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { gsap } from 'gsap';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { gsap } from "gsap";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,16 +14,16 @@ const Header = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Animate header on mount
   useEffect(() => {
     gsap.fromTo(
-      '.header',
+      ".header",
       { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }
+      { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
     );
   }, []);
 
@@ -40,30 +40,47 @@ const Header = () => {
   return (
     <header
       className={`header fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <span className="text-xl font-bold text-orange-500">Campus Bootcamp</span>
+            <span className="text-xl font-bold text-orange-500">
+              TechTutorz Bootcamp
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="nav-link font-medium hover:text-orange-500 transition-colors">
+            <Link
+              to="/"
+              className="nav-link font-medium hover:text-orange-500 transition-colors"
+            >
               Home
             </Link>
-            <Link to="/week/1-3" className="nav-link font-medium hover:text-orange-500 transition-colors">
-              Week 1-3
+            <Link
+              to="/stage/1"
+              className="nav-link font-medium hover:text-orange-500 transition-colors"
+            >
+              Stage 1
             </Link>
-            <Link to="/week/4-6" className="nav-link font-medium hover:text-orange-500 transition-colors">
-              Week 4-6
+            <Link
+              to="/stage/2"
+              className="nav-link font-medium hover:text-orange-500 transition-colors"
+            >
+              Stage 2
             </Link>
-            <Link to="/week/7" className="nav-link font-medium hover:text-orange-500 transition-colors">
-              Week 7
+            <Link
+              to="/stage/3"
+              className="nav-link font-medium hover:text-orange-500 transition-colors"
+            >
+              Stage 3
             </Link>
-            <Link to="/benefits" className="nav-link font-medium hover:text-orange-500 transition-colors">
+            <Link
+              to="/benefits"
+              className="nav-link font-medium hover:text-orange-500 transition-colors"
+            >
               Benefits
             </Link>
             <Link to="/" className="btn-primary">
@@ -72,7 +89,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-gray-800 focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -83,25 +100,43 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="md:hidden mt-4 pb-4 bg-white shadow-lg rounded-lg px-6 py-4">
             <div className="flex flex-col space-y-4">
-              <Link to="/" className="font-medium hover:text-orange-500 transition-colors">
+              <Link
+                to="/"
+                className="font-medium hover:text-orange-500 transition-colors"
+              >
                 Home
               </Link>
-              <Link to="/week/1-3" className="font-medium hover:text-orange-500 transition-colors">
-                Week 1-3
+              <Link
+                to="/stage/1"
+                className="font-medium hover:text-orange-500 transition-colors"
+              >
+                Stage 1
               </Link>
-              <Link to="/week/4-6" className="font-medium hover:text-orange-500 transition-colors">
-                Week 4-6
+              <Link
+                to="/stage/2"
+                className="font-medium hover:text-orange-500 transition-colors"
+              >
+                Stage 2
               </Link>
-              <Link to="/week/7" className="font-medium hover:text-orange-500 transition-colors">
-                Week 7
+              <Link
+                to="/stage/3"
+                className="font-medium hover:text-orange-500 transition-colors"
+              >
+                Stage 3
               </Link>
-              <Link to="/benefits" className="font-medium hover:text-orange-500 transition-colors">
+              <Link
+                to="/benefits"
+                className="font-medium hover:text-orange-500 transition-colors"
+              >
                 Benefits
               </Link>
-              <Link to="/" className="btn-primary inline-block text-center w-full">
-                Start Now
+              <Link
+                to="/register"
+                className="btn-primary inline-block text-center w-full"
+              >
+                Register Now
               </Link>
             </div>
           </div>
