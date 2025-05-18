@@ -1,16 +1,14 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Calendar, Users, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import RegistrationModal from "./RegistrationModal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CTASection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (sectionRef.current && contentRef.current) {
@@ -68,10 +66,6 @@ const CTASection = () => {
           >
             Register Now
           </Link>
-          <RegistrationModal
-            open={modalOpen}
-            onClose={() => setModalOpen(false)}
-          />
         </div>
       </div>
     </section>

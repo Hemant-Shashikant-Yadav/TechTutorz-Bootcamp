@@ -9,7 +9,7 @@ const RegistrationPage: React.FC = () => (
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDDxEqvynboUK3QgiZ5mICyjQUfOqOcXGb9wC-mNz2eFnHlA/viewform?embedded=true"
         width="100%"
-        height="900"
+        height="1050"
         frameBorder="0"
         marginHeight={0}
         marginWidth={0}
