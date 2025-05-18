@@ -58,17 +58,6 @@ const StageCard = ({
     };
   }, []);
 
-  // Support for view transitions API if available
-  const handleClick = (event: React.MouseEvent) => {
-    if (typeof document.startViewTransition === "function") {
-      event.preventDefault();
-      const href = (event.currentTarget as HTMLAnchorElement).href;
-      document.startViewTransition(() => {
-        window.location.href = href;
-      });
-    }
-  };
-
   return (
     <div ref={cardRef} className="card relative h-[300px] md:h-[350px] group">
       <img
@@ -85,7 +74,6 @@ const StageCard = ({
         <p className="text-white/90 mb-4 line-clamp-2">{description}</p>
         <Link
           to={`/stage/${stage}`}
-          onClick={handleClick}
           className="btn-primary inline-flex items-center justify-center w-full"
         >
           Learn More

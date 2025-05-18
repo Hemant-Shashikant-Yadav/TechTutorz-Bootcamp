@@ -74,12 +74,6 @@ const StageDetails = () => {
 
   // Helper to get Stage title
   const getStageTitle = () => {
-    if (stageData.id === "1-3")
-      return stageData.title.replace("Week 1-3", "Stage 1");
-    if (stageData.id === "4-6")
-      return stageData.title.replace("Week 4-6", "Stage 2");
-    if (stageData.id === "7")
-      return stageData.title.replace("Week 7", "Stage 3");
     return stageData.title;
   };
 
