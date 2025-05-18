@@ -8,7 +8,7 @@ import {
   BookOpen,
   CheckCircle,
 } from "lucide-react";
-import { stage } from "../data/bootcampData";
+import { stages } from "../data/bootcampData";
 
 const StageDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,7 +19,7 @@ const StageDetails = () => {
   const stageToDataId = (stageId: string | undefined) => {
     return stageId;
   };
-  const stageData = stage.find((stage) => stage.id === stageToDataId(id));
+  const stageData = stages.find((stage) => stage.id === stageToDataId(id));
 
   // Animation on mount
   useEffect(() => {

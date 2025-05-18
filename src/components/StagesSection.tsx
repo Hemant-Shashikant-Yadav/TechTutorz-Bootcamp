@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import StageCard from "./StageCard";
-import { stage } from "../data/bootcampData";
+import { stages } from "../data/bootcampData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,20 +31,20 @@ const StagesSection = () => {
   }, []);
 
   return (
-    <section id="weeks-section" ref={sectionRef} className="py-20 bg-white">
+    <section id="stages-section" ref={sectionRef} className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <h2 ref={titleRef} className="section-title text-center mb-12">
           Bootcamp Structure
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stage.map((Stage, index) => (
+          {stages.map((stage, index) => (
             <StageCard
-              key={Stage.id}
-              stage={Stage.id}
-              title={Stage.title}
-              description={Stage.shortDescription}
-              image={Stage.image}
+              key={stage.id}
+              stage={stage.id}
+              title={stage.title}
+              description={stage.shortDescription}
+              image={stage.image}
               delay={index * 0.1}
             />
           ))}

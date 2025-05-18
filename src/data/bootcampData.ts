@@ -1,6 +1,6 @@
 import { Stage } from '../types';
 
-export const stage: Stage[] = [
+export const stages: Stage[] = [
   {
     id: '1',
     title: 'Stage 1: Aptitude Foundation',
