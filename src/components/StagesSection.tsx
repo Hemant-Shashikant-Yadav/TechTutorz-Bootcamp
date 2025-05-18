@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import WeekCard from "./WeekCard";
-import { weeks } from "../data/bootcampData";
+import StageCard from "./StageCard";
+import { stage } from "../data/bootcampData";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WeeksSection = () => {
+const StagesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
 
@@ -38,29 +38,13 @@ const WeeksSection = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {weeks.map((week, index) => (
-            <WeekCard
-              key={week.id}
-              week={
-                week.id === "1-3"
-                  ? "1"
-                  : week.id === "4-6"
-                  ? "2"
-                  : week.id === "7"
-                  ? "3"
-                  : week.id
-              }
-              title={
-                week.id === "1-3"
-                  ? week.title.replace("Week 1-3", "Stage 1")
-                  : week.id === "4-6"
-                  ? week.title.replace("Week 4-6", "Stage 2")
-                  : week.id === "7"
-                  ? week.title.replace("Week 7", "Stage 3")
-                  : week.title
-              }
-              description={week.shortDescription}
-              image={week.image}
+          {stage.map((Stage, index) => (
+            <StageCard
+              key={Stage.id}
+              stage={Stage.id}
+              title={Stage.title}
+              description={Stage.shortDescription}
+              image={Stage.image}
               delay={index * 0.1}
             />
           ))}
@@ -70,4 +54,4 @@ const WeeksSection = () => {
   );
 };
 
-export default WeeksSection;
+export default StagesSection;

@@ -9,9 +9,9 @@ import Footer from "./components/Footer";
 
 // Pages
 import Home from "./pages/Home";
-import WeekDetails from "./pages/WeekDetails";
 import Benefits from "./pages/Benefits";
 import RegistrationPage from "./pages/RegistrationPage";
+import StageDetails from "./pages/StageDetails";
 
 // Initialize GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -50,7 +50,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stage/:id" element={<WeekDetails />} />
+          <Route path="/stage/:id" element={<StageDetails />} />
           <Route path="/benefits" element={<Benefits />} />
           <Route path="/register" element={<RegistrationPage />} />
         </Routes>

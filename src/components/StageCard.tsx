@@ -1,15 +1,15 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
-import { WeekCardProps } from "../types";
+import { StageCardProps } from "../types";
 
-const WeekCard = ({
-  week,
+const StageCard = ({
+  stage,
   title,
   description,
   image,
   delay = 0,
-}: WeekCardProps) => {
+}: StageCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Animation on mount
@@ -84,15 +84,7 @@ const WeekCard = ({
         </h3>
         <p className="text-white/90 mb-4 line-clamp-2">{description}</p>
         <Link
-          to={`/stage/${
-            week === "1-3"
-              ? "1"
-              : week === "4-6"
-              ? "2"
-              : week === "7"
-              ? "3"
-              : week
-          }`}
+          to={`/stage/${stage}`}
           onClick={handleClick}
           className="btn-primary inline-flex items-center justify-center w-full"
         >
@@ -103,4 +95,4 @@ const WeekCard = ({
   );
 };
 
-export default WeekCard;
+export default StageCard;

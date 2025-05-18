@@ -8,24 +8,22 @@ import {
   BookOpen,
   CheckCircle,
 } from "lucide-react";
-import { weeks } from "../data/bootcampData";
+import { stage } from "../data/bootcampData";
 
-const WeekDetails = () => {
+const StageDetails = () => {
   const { id } = useParams<{ id: string }>();
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  // Map stage id to week id
-  const stageToWeekId = (stageId: string | undefined) => {
-    if (stageId === "1") return "1-3";
-    if (stageId === "2") return "4-6";
-    if (stageId === "3") return "7";
+
+  // Map stage id to week id in data
+  const stageToDataId = (stageId: string | undefined) => {
     return stageId;
   };
-  const weekData = weeks.find((week) => week.id === stageToWeekId(id));
+  const stageData = stage.find((stage) => stage.id === stageToDataId(id));
 
   // Animation on mount
   useEffect(() => {
-    if (headerRef.current && contentRef.current && weekData) {
+    if (headerRef.current && contentRef.current && stageData) {
       const tl = gsap.timeline();
 
       tl.fromTo(
@@ -55,17 +53,17 @@ const WeekDetails = () => {
         );
       });
     }
-  }, [weekData]);
+  }, [stageData]);
 
-  // If week not found, display an error
-  if (!weekData) {
+  // If stage not found, display an error
+  if (!stageData) {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
-          Week not found
+          Stage not found
         </h2>
         <p className="text-gray-600 mb-6">
-          The week you're looking for doesn't exist.
+          The stage you're looking for doesn't exist.
         </p>
         <Link to="/" className="btn-primary">
           Back to Home
@@ -74,6 +72,17 @@ const WeekDetails = () => {
     );
   }
 
+  // Helper to get Stage title
+  const getStageTitle = () => {
+    if (stageData.id === "1-3")
+      return stageData.title.replace("Week 1-3", "Stage 1");
+    if (stageData.id === "4-6")
+      return stageData.title.replace("Week 4-6", "Stage 2");
+    if (stageData.id === "7")
+      return stageData.title.replace("Week 7", "Stage 3");
+    return stageData.title;
+  };
+
   return (
     <div className="pt-20">
       {/* Header with background image */}
@@ -81,7 +90,7 @@ const WeekDetails = () => {
         ref={headerRef}
         className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `url(${weekData.detailImage || weekData.image})`,
+          backgroundImage: `url(${stageData.detailImage || stageData.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -89,16 +98,10 @@ const WeekDetails = () => {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            {weekData.id === "1-3"
-              ? weekData.title.replace("Week 1-3", "Stage 1")
-              : weekData.id === "4-6"
-              ? weekData.title.replace("Week 4-6", "Stage 2")
-              : weekData.id === "7"
-              ? weekData.title.replace("Week 7", "Stage 3")
-              : weekData.title}
+            {getStageTitle()}
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            {weekData.shortDescription}
+            {stageData.shortDescription}
           </p>
         </div>
       </div>
@@ -126,26 +129,26 @@ const WeekDetails = () => {
               <Calendar className="text-orange-500 h-6 w-6 mr-3 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-gray-800 mb-1">Schedule</h3>
-                <p className="text-gray-600">{weekData.schedule}</p>
+                <p className="text-gray-600">{stageData.schedule}</p>
               </div>
             </div>
             <div className="bg-orange-50 p-6 rounded-lg flex items-start">
               <Clock className="text-orange-500 h-6 w-6 mr-3 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-gray-800 mb-1">Duration</h3>
-                <p className="text-gray-600">{weekData.duration}</p>
+                <p className="text-gray-600">{stageData.duration}</p>
               </div>
             </div>
             <div className="bg-orange-50 p-6 rounded-lg flex items-start">
               <BookOpen className="text-orange-500 h-6 w-6 mr-3 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-gray-800 mb-1">Focus Area</h3>
-                <p className="text-gray-600">{weekData.focusArea}</p>
+                <p className="text-gray-600">{stageData.focusArea}</p>
               </div>
             </div>
           </div>
           <p className="text-gray-600 text-lg leading-relaxed">
-            {weekData.description}
+            {stageData.description}
           </p>
         </section>
 
@@ -155,7 +158,7 @@ const WeekDetails = () => {
             Curriculum
           </h2>
           <div className="space-y-4">
-            {weekData.curriculum.map((item, index) => (
+            {stageData.curriculum.map((item, index) => (
               <div
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
@@ -183,10 +186,10 @@ const WeekDetails = () => {
           </h2>
           <div className="bg-orange-50 p-8 rounded-lg">
             <p className="text-gray-700 text-lg leading-relaxed mb-6">
-              {weekData.benefits}
+              {stageData.benefits}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {weekData.outcomes.map((outcome, index) => (
+              {stageData.outcomes.map((outcome, index) => (
                 <div key={index} className="flex items-start">
                   <CheckCircle className="text-orange-500 h-5 w-5 mr-3 mt-1 flex-shrink-0" />
                   <p className="text-gray-700">{outcome}</p>
@@ -216,4 +219,4 @@ const WeekDetails = () => {
   );
 };
 
-export default WeekDetails;
+export default StageDetails;

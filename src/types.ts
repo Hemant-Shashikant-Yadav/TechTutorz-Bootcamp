@@ -1,12 +1,12 @@
-export interface WeekCardProps {
-  week: string;
+export interface StageCardProps {
+  stage: string;
   title: string;
   description: string;
   image: string;
   delay?: number;
 }
 
-export interface Week {
+export interface Stage {
   id: string;
   title: string;
   shortDescription: string;

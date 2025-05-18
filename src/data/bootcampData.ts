@@ -1,9 +1,9 @@
-import { Week } from '../types';
+import { Stage } from '../types';
 
-export const weeks: Week[] = [
+export const stage: Stage[] = [
   {
-    id: '1-3',
-    title: 'Week 1-3: Aptitude Foundation',
+    id: '1',
+    title: 'Stage 1: Aptitude Foundation',
     shortDescription: 'Build a strong foundation in aptitude concepts and problem-solving techniques',
     description: 'The first three weeks focus on establishing a strong foundation in aptitude skills - covering quantitative, logical reasoning, and verbal ability. Through daily practice sessions and weekend tests, you\'ll develop the speed and accuracy needed to excel in placement aptitude rounds.',
     image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -53,10 +53,10 @@ export const weeks: Week[] = [
     ]
   },
   {
-    id: '4-6',
-    title: 'Week 4-6: Technical Skills Development',
+    id: '2',
+    title: 'Stage 2: Technical Skills Development',
     shortDescription: 'Master data structures, algorithms, and coding patterns for technical interviews',
-    description: 'Weeks 4-6 dive deep into technical skills, with a focus on data structures and algorithms. You\'ll solve over 100 coding problems, work on company-specific question patterns, and participate in weekly coding tests that simulate real interview conditions.',
+    description: 'Stage 2 dive deep into technical skills, with a focus on data structures and algorithms. You\'ll solve over 100 coding problems, work on company-specific question patterns, and participate in weekly coding tests that simulate real interview conditions.',
     image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     detailImage: 'https://images.pexels.com/photos/4709289/pexels-photo-4709289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     schedule: 'Monday to Saturday: 2 hours daily, Sunday: Test',
@@ -104,8 +104,8 @@ export const weeks: Week[] = [
     ]
   },
   {
-    id: '7',
-    title: 'Week 7: Intensive Placement Preparation',
+    id: '3',
+    title: 'Stage 3: Intensive Placement Preparation',
     shortDescription: 'Full mock placement rounds simulating actual campus recruitment tests',
     description: 'The final week provides intensive, comprehensive placement preparation through full mock tests that combine aptitude, technical skills, and coding challenges. Each day includes 90-minute aptitude and technical assessments, followed by coding problem-solving sessions, mimicking the exact format of campus placement tests.',
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
